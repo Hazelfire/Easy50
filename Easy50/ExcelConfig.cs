@@ -111,7 +111,9 @@ namespace Easy50
             mCurrentGenerationInfo.studentFormColumn = mStudentFormColumn;
             mCurrentGenerationInfo.studentNameColumn = mStudentNameColumn;
 
-            // Continue the chain of windows
+            
+            new PicturesFolderConfig(mCurrentGenerationInfo).Show();
+            Hide();
         }
     }
 }

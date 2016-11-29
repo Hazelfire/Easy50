@@ -18,5 +18,15 @@ namespace Easy50
         public int studentFormColumn;
         public int studentCodeColumn;
         public int studentAwardColumn;
+
+        public string pictureFileExtension;
+
+        int awardHeadingLayoutIndex;
+        int awardLayoutIndex;
+        int awardHeadingAwardTitlePlaceholderIndex;
+        int awardAwardTitlePlaceholderIndex;
+        int awardStudentNamePlaceholderIndex;
+        int awardStudentPicturePlaceholderIndex;
+        int awardStudentFormPlaceholderIndex;
     } 
 }

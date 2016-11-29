@@ -59,6 +59,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="PicturesFolderConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PicturesFolderConfig.Designer.cs">
+      <DependentUpon>PicturesFolderConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PowerpointConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PowerpointConfig.Designer.cs">
+      <DependentUpon>PowerpointConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ExcelConfig.resx">
@@ -66,6 +78,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PicturesFolderConfig.resx">
+      <DependentUpon>PicturesFolderConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PowerpointConfig.resx">
+      <DependentUpon>PowerpointConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -103,6 +121,15 @@
       <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>1</VersionMajor>
       <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.PowerPoint">
+      <Guid>{91493440-5A91-11CF-8700-00AA0060263B}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>12</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>

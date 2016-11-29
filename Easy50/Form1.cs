@@ -18,19 +18,14 @@ namespace Easy50
             
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void nextButton_Click(object sender, EventArgs e)
         {
-            GenInfo information;
+            GenInfo information = new GenInfo();
             information.awardExcelFile = awardsExcelText.Text;
             information.awardPowerpointTemplateFile = powerpointText.Text;
             information.picturesFolder = picturesText.Text;
 
-            ExcelConfig excelConfig = new ExcelConfig(awardsExcelText.Text);
+            ExcelConfig excelConfig = new ExcelConfig(information);
             Hide();
             excelConfig.Show();
         }
