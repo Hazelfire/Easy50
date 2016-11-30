@@ -48,13 +48,16 @@ namespace Easy50
            
 
             int comboIndex = awardHeadingMasterCombo.SelectedIndex;
+
+            mGenInfo.awardHeadingLayoutIndex = comboIndex + 1;
+
             PowerPoint.CustomLayout selectedLayout = mPresentation.SlideMaster.CustomLayouts[comboIndex + 1];
             mPresentation.Slides.AddSlide(mPresentation.Slides.Count + 1, selectedLayout);
             string workingDirectory = Directory.GetCurrentDirectory();
 
             awardHeadingTextBoxCombo.Items.Clear();
 
-            // Load the text boxes and such
+            // Load the placeholder combo boxes and such
             PowerPoint.Shapes shapes = selectedLayout.Shapes;
 
             foreach(PowerPoint.Shape shape in shapes)
@@ -82,10 +85,31 @@ namespace Easy50
         private void singleAwardMasterCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
             int comboIndex = singleAwardMasterCombo.SelectedIndex;
+
+            mGenInfo.awardLayoutIndex = comboIndex + 1;
+
             PowerPoint.CustomLayout selectedLayout = mPresentation.SlideMaster.CustomLayouts[comboIndex + 1];
             mPresentation.Slides.AddSlide(mPresentation.Slides.Count + 1, selectedLayout);
             string workingDirectory = Directory.GetCurrentDirectory();
 
+            imagePlaceholderCombo.Items.Clear();
+            awardPlaceholderCombo.Items.Clear();
+            formPlaceholderCombo.Items.Clear();
+            studentNamePlaceholderCombo.Items.Clear();
+
+            // Load the text boxes and such
+            PowerPoint.Shapes shapes = selectedLayout.Shapes;
+
+            foreach (PowerPoint.Shape shape in shapes)
+            {
+                if (shape.Type == MsoShapeType.msoPlaceholder)
+                {
+                    imagePlaceholderCombo.Items.Add(shape.Name);
+                    awardPlaceholderCombo.Items.Add(shape.Name);
+                    formPlaceholderCombo.Items.Add(shape.Name);
+                    studentNamePlaceholderCombo.Items.Add(shape.Name);
+                }
+            }
 
             if (File.Exists(workingDirectory + "/AwardSlideRender.png"))
             {
@@ -98,11 +122,39 @@ namespace Easy50
 
             awardPictureBox.Image = Image.FromFile(workingDirectory + "/AwardSlideRender.png");
 
+
+
         }
 
         private void awardHeadingTextBoxCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            mGenInfo.awardHeadingAwardTitlePlaceholderIndex = awardHeadingMasterCombo.SelectedIndex + 1;
+        }
+
+        private void imagePlaceholderCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            mGenInfo.awardStudentPicturePlaceholderIndex = imagePlaceholderCombo.SelectedIndex + 1;
+        }
+
+        private void formPlaceholderCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            mGenInfo.awardStudentFormPlaceholderIndex = formPlaceholderCombo.SelectedIndex + 1;
+        }
+
+        private void studentNamePlaceholderCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            mGenInfo.awardStudentNamePlaceholderIndex = studentNamePlaceholderCombo.SelectedIndex + 1;
+        }
+
+        private void awardPlaceholderCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            mGenInfo.awardAwardTitlePlaceholderIndex = awardPlaceholderCombo.SelectedIndex + 1;
+        }
+
+        private void generateButton_Click(object sender, EventArgs e)
+        {
+            Generator.generate(mGenInfo);
+            Hide();
         }
     }
 }

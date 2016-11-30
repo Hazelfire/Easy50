@@ -21,12 +21,12 @@ namespace Easy50
 
         public string pictureFileExtension;
 
-        int awardHeadingLayoutIndex;
-        int awardLayoutIndex;
-        int awardHeadingAwardTitlePlaceholderIndex;
-        int awardAwardTitlePlaceholderIndex;
-        int awardStudentNamePlaceholderIndex;
-        int awardStudentPicturePlaceholderIndex;
-        int awardStudentFormPlaceholderIndex;
+        public int awardHeadingLayoutIndex;
+        public int awardLayoutIndex;
+        public int awardHeadingAwardTitlePlaceholderIndex;
+        public int awardAwardTitlePlaceholderIndex;
+        public int awardStudentNamePlaceholderIndex;
+        public int awardStudentPicturePlaceholderIndex;
+        public int awardStudentFormPlaceholderIndex;
     } 
 }
