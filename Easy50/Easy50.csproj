@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Generator.cs" />
     <Compile Include="GenInfo.cs" />
     <Compile Include="ExcelConfig.cs">
       <SubType>Form</SubType>

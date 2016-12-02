@@ -45,7 +45,7 @@ namespace Easy50
 
         private void awardHeadingMasterCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
 
             int comboIndex = awardHeadingMasterCombo.SelectedIndex;
 
@@ -60,12 +60,11 @@ namespace Easy50
             // Load the placeholder combo boxes and such
             PowerPoint.Shapes shapes = selectedLayout.Shapes;
 
-            foreach(PowerPoint.Shape shape in shapes)
+            PowerPoint.Placeholders placeholders = shapes.Placeholders;
+
+            foreach (PowerPoint.Shape placeholder in placeholders)
             {
-                if(shape.Type == MsoShapeType.msoPlaceholder)
-                {
-                    awardHeadingTextBoxCombo.Items.Add(shape.Name);
-                }
+                awardHeadingTextBoxCombo.Items.Add(placeholder.TextFrame.TextRange.Text);
             }
 
             if (File.Exists(workingDirectory + "/AwardHeadingRender.png"))
@@ -100,15 +99,16 @@ namespace Easy50
             // Load the text boxes and such
             PowerPoint.Shapes shapes = selectedLayout.Shapes;
 
-            foreach (PowerPoint.Shape shape in shapes)
+            PowerPoint.Placeholders placeholders = shapes.Placeholders;
+
+            foreach (PowerPoint.Shape placeholder in placeholders)
             {
-                if (shape.Type == MsoShapeType.msoPlaceholder)
-                {
-                    imagePlaceholderCombo.Items.Add(shape.Name);
-                    awardPlaceholderCombo.Items.Add(shape.Name);
-                    formPlaceholderCombo.Items.Add(shape.Name);
-                    studentNamePlaceholderCombo.Items.Add(shape.Name);
-                }
+
+                imagePlaceholderCombo.Items.Add(placeholder.Name);
+                awardPlaceholderCombo.Items.Add(placeholder.TextFrame.TextRange.Text);
+                formPlaceholderCombo.Items.Add(placeholder.TextFrame.TextRange.Text);
+                studentNamePlaceholderCombo.Items.Add(placeholder.TextFrame.TextRange.Text);
+
             }
 
             if (File.Exists(workingDirectory + "/AwardSlideRender.png"))
@@ -153,6 +153,7 @@ namespace Easy50
 
         private void generateButton_Click(object sender, EventArgs e)
         {
+            mPresentation.Close();
             Generator.generate(mGenInfo);
             Hide();
         }

@@ -27,5 +27,10 @@ namespace Easy50
             Hide();
             // Pass on the chain
         }
+
+        private void PicturesFolderConfig_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

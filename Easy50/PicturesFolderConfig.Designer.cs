@@ -69,6 +69,7 @@
             this.Controls.Add(this.nextButton);
             this.Name = "PicturesFolderConfig";
             this.Text = "Pictures Folder";
+            this.Load += new System.EventHandler(this.PicturesFolderConfig_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
